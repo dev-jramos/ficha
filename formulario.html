@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Anamnese</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <div class="container">
+        
+        
+        <form id="form-anamnese">
+            <div class="header-container">
+                <img src="logo.png" alt="Logo" class="logo">
+                <div>
+                    <h1>Ficha Anamnese</h1>
+                    <h2>Psicoterapia Integrativa</h2>
+                </div>
+            </div>
+            <section>
+                <h3>DADOS PESSOAIS</h3>
+                <label>Nome: <input type="text" name="nome" required></label>
+                <label>Data de Nascimento: <input type="date" name="data_nascimento" required></label>
+                <label>Endereço: <input type="text" name="endereco"></label>
+                <label>Contato: <input type="tel" name="contato"></label>
+                <label>Estado Civil: <input type="text" name="estado_civil"></label>
+                <label>Religião: <input type="text" name="religiao"></label>
+                <label>Profissão: <input type="text" name="profissao"></label>
+            </section>
+            
+            <section>
+                <h3>QUEIXA PRINCIPAL</h3>
+                <textarea name="queixa" rows="3"></textarea>
+            </section>
+
+            <section>
+                <h3>INFORMAÇÕES PESSOAIS</h3>
+                <label><input type="checkbox" name="acompanhamento"> Fez acompanhamento médico ou terapêutico?</label>
+                <label><input type="checkbox" name="alergia"> Alérgico a algum medicamento?</label>
+                <label><input type="checkbox" name="medicamento"> Está fazendo uso de algum medicamento?</label>
+                <label><input type="checkbox" name="alcool"> Faz uso de álcool ou cigarro?</label>
+                <label><input type="checkbox" name="sono"> Alimentação e sono são satisfatórios?</label>
+            </section>
+
+            <section>
+                <h3>TRATAMENTO SUGERIDO</h3>
+                <textarea name="tratamento" rows="4"></textarea>
+            </section>
+
+            <section>
+                <h3>OBSERVAÇÕES GERAIS</h3>
+                <textarea name="observacoes" rows="4"></textarea>
+            </section>
+
+            <section class="termo">
+                <hr>
+                <p>Eu me responsabilizo por todas as informações apresentadas e autorizo o tratamento terapêutico.</p>
+                <p>Pacotes válidos por 3 meses, acima de 8 sessões. Pacotes de 4 sessões válidos por 2 meses.</p>
+                <div class="assinatura">
+                    <span>DATA _______/_______/_______</span>
+                    <span>________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASSINATURA</span>
+                </div>
+            </section>
+            
+            <button type="button" id="gerarPDF">Gerar PDF</button>
+        </form>
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="formulario.js"></script>
+
+</body>
+</html>
