@@ -1,0 +1,463 @@
+/* Variáveis CSS para consistência */
+:root {
+    /* Cores principais */
+    --primary-color: #e6b0aa;
+    --primary-dark: #d8938c;
+    --secondary-color: #a33;
+    --secondary-dark: #922;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --white: #fff;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    
+    /* Espaçamentos */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    
+    /* Bordas */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Fontes */
+    --font-size-sm: 0.85rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.5rem;
+}
+
+/* Reset e estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    padding: var(--spacing-lg);
+}
+
+/* Estilos para impressão */
+@media print {
+    body {
+        background-color: var(--white);
+        font-size: 12pt;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    form {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+    
+    .action-buttons, #clear-signature, #preview-container {
+        display: none !important;
+    }
+    
+    .section-break {
+        page-break-before: always;
+    }
+    
+    .signature-pad {
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* Header e Cabeçalho */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-md);
+}
+
+.header-container .logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-container div {
+    flex-grow: 1;
+    text-align: center;
+}
+
+h1 {
+    color: var(--secondary-color);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: var(--font-size-lg);
+    font-weight: normal;
+}
+
+/* Estilos para o formulário */
+form {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 0 20px var(--shadow-color);
+    margin: auto;
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+h3 {
+    background: var(--primary-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 i {
+    margin-right: var(--spacing-sm);
+}
+
+/* Grid para campos de formulário */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(230, 176, 170, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Campos de checkbox */
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    display: inline;
+    cursor: pointer;
+}
+
+.details-field {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    margin-left: 25px;
+}
+
+.details-field textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Tipos de atendimento */
+.atendimento-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+}
+
+.atendimento-grupo {
+    flex: 1;
+    min-width: 250px;
+}
+
+.atendimento-grupo p {
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin-right: var(--spacing-xs);
+    cursor: pointer;
+}
+
+.radio-group label {
+    display: inline;
+    margin-right: var(--spacing-lg);
+    cursor: pointer;
+}
+
+/* Termo e assinatura */
+.termo {
+    margin-top: var(--spacing-xl);
+}
+
+.termo hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.termo-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.termo-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.assinatura {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.data-field {
+    min-width: 200px;
+    flex: 1;
+}
+
+.signature-field {
+    flex: 2;
+    min-width: 300px;
+}
+
+.signature-pad {
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius-sm);
+    height: 150px;
+    width: 100%;
+    background-color: #f8f8f8;
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+}
+
+.signature-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.signature-actions {
+    text-align: right;
+}
+
+/* Botões */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    flex: 1;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-dark);
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Preview do PDF */
+#preview-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--spacing-lg);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+}
+
+#pdf-preview {
+    width: 100%;
+    max-width: 900px;
+    height: 80vh;
+    background: var(--white);
+    overflow: auto;
+    border-radius: var(--border-radius-md);
+}
+
+.preview-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    :root {
+        --spacing-lg: 15px;
+        --spacing-xl: 20px;
+    }
+    
+    .container {
+        padding: var(--spacing-sm);
+    }
+    
+    form {
+        padding: var(--spacing-lg);
+    }
+    
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-container .logo {
+        margin: 0 auto var(--spacing-sm);
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .assinatura {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --font-size-base: 0.9rem;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .radio-group label {
+        margin-right: 0;
+    }
+}

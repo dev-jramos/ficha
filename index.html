@@ -3,78 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha de Anamnese</title>
-    <link rel="stylesheet" href="formulario.css">
+    <title>Ficha de Anamnese - Psicoterapia Integrativa</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        
-        
         <form id="form-anamnese">
             <div class="header-container">
-                <img src="logo.png" alt="Logo" class="logo">
+                <img src="logo.png" alt="Logo" class="logo" id="logoImg">
                 <div>
                     <h1>Ficha Anamnese</h1>
                     <h2>Psicoterapia Integrativa</h2>
                 </div>
             </div>
-            <section>
-                <h3>DADOS PESSOAIS</h3>
-                <label>Nome: <input type="text" name="nome" required></label>
-                <label>Data de Nascimento: <input type="date" name="data_nascimento" required></label>
-                <label>Endereço: <input type="text" name="endereco"></label>
-                <label>Contato: <input type="tel" name="contato"></label>
-                <label>Estado Civil: <input type="text" name="estado_civil"></label>
-                <label>Religião: <input type="text" name="religiao"></label>
-                <label>Profissão: <input type="text" name="profissao"></label>
+            
+            <section class="section-dados">
+                <h3><i class="fas fa-user"></i> DADOS PESSOAIS</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data_nascimento">Data de Nascimento:</label>
+                        <input type="date" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco">
+                    </div>
+                    <div class="form-group">
+                        <label for="contato">Contato:</label>
+                        <input type="tel" id="contato" name="contato" placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado_civil">Estado Civil:</label>
+                        <select id="estado_civil" name="estado_civil">
+                            <option value="">Selecione</option>
+                            <option value="solteiro">Solteiro(a)</option>
+                            <option value="casado">Casado(a)</option>
+                            <option value="divorciado">Divorciado(a)</option>
+                            <option value="viuvo">Viúvo(a)</option>
+                            <option value="uniao">União Estável</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="religiao">Religião:</label>
+                        <input type="text" id="religiao" name="religiao">
+                    </div>
+                    <div class="form-group">
+                        <label for="profissao">Profissão:</label>
+                        <input type="text" id="profissao" name="profissao">
+                    </div>
+                </div>
             </section>
             
             <section>
-                <h3>QUEIXA PRINCIPAL</h3>
-                <textarea name="queixa" rows="3"></textarea>
+                <h3><i class="fas fa-comment-medical"></i> QUEIXA PRINCIPAL</h3>
+                <div class="form-group">
+                    <textarea id="queixa" name="queixa" rows="3" placeholder="Descreva a principal queixa ou motivo da consulta"></textarea>
+                </div>
             </section>
 
             <section>
-                <h3>INFORMAÇÕES PESSOAIS</h3>
-                <label><input type="checkbox" name="acompanhamento"> Fez acompanhamento médico ou terapêutico?</label>
-                <label><input type="checkbox" name="alergia"> Alérgico a algum medicamento?</label>
-                <label><input type="checkbox" name="medicamento"> Está fazendo uso de algum medicamento?</label>
-                <label><input type="checkbox" name="alcool"> Faz uso de álcool ou cigarro?</label>
-                <label><input type="checkbox" name="sono"> Alimentação e sono são satisfatórios?</label>
+                <h3><i class="fas fa-heartbeat"></i> INFORMAÇÕES PESSOAIS</h3>
+                <div class="checkbox-container">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="acompanhamento" name="acompanhamento">
+                        <label for="acompanhamento">Fez acompanhamento médico ou terapêutico?</label>
+                        <div class="details-field hidden" id="acompanhamento-details">
+                            <textarea placeholder="Informe detalhes sobre o acompanhamento"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="alergia" name="alergia">
+                        <label for="alergia">Alérgico a algum medicamento?</label>
+                        <div class="details-field hidden" id="alergia-details">
+                            <textarea placeholder="Informe detalhes sobre as alergias"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="medicamento" name="medicamento">
+                        <label for="medicamento">Está fazendo uso de algum medicamento?</label>
+                        <div class="details-field hidden" id="medicamento-details">
+                            <textarea placeholder="Informe detalhes sobre os medicamentos"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="alcool" name="alcool">
+                        <label for="alcool">Faz uso de álcool ou cigarro?</label>
+                        <div class="details-field hidden" id="alcool-details">
+                            <textarea placeholder="Informe detalhes sobre o uso de álcool ou cigarro"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="sono" name="sono">
+                        <label for="sono">Alimentação e sono são satisfatórios?</label>
+                        <div class="details-field hidden" id="sono-details">
+                            <textarea placeholder="Informe detalhes sobre alimentação e sono"></textarea>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section>
-                <h3>TRATAMENTO SUGERIDO</h3>
-                <textarea name="tratamento" rows="4"></textarea>
+                <h3><i class="fas fa-clipboard-list"></i> TRATAMENTO SUGERIDO</h3>
+                <div class="form-group">
+                    <textarea id="tratamento" name="tratamento" rows="4" placeholder="Descreva o tratamento sugerido para o paciente"></textarea>
+                </div>
             </section>
 
             <section>
-                <h3>OBSERVAÇÕES GERAIS</h3>
-                <textarea name="observacoes" rows="4"></textarea>
+                <h3><i class="fas fa-sticky-note"></i> OBSERVAÇÕES GERAIS</h3>
+                <div class="form-group">
+                    <textarea id="observacoes" name="observacoes" rows="4" placeholder="Observações adicionais relevantes"></textarea>
+                </div>
             </section>
 
-            <section class="section">
-                <h3>TIPOS DE ATENDIMENTO</h3>
-                <p>Atendimento presencial <input type="checkbox"> online <input type="checkbox"> semanal <input type="checkbox"> quinzenal <input type="checkbox"> mensal <input type="checkbox"></p>
+            <section>
+                <h3><i class="fas fa-calendar-check"></i> TIPOS DE ATENDIMENTO</h3>
+                <div class="atendimento-container">
+                    <div class="atendimento-grupo">
+                        <p>Modalidade:</p>
+                        <div class="radio-group">
+                            <input type="radio" id="presencial" name="modalidade" value="presencial">
+                            <label for="presencial">Presencial</label>
+                            
+                            <input type="radio" id="online" name="modalidade" value="online">
+                            <label for="online">Online</label>
+                        </div>
+                    </div>
+                    
+                    <div class="atendimento-grupo">
+                        <p>Frequência:</p>
+                        <div class="radio-group">
+                            <input type="radio" id="semanal" name="frequencia" value="semanal">
+                            <label for="semanal">Semanal</label>
+                            
+                            <input type="radio" id="quinzenal" name="frequencia" value="quinzenal">
+                            <label for="quinzenal">Quinzenal</label>
+                            
+                            <input type="radio" id="mensal" name="frequencia" value="mensal">
+                            <label for="mensal">Mensal</label>
+                        </div>
+                    </div>
+                </div>
             </section>
             
             <section class="termo">
                 <hr>
-                <p>Eu me responsabilizo por todas as informações apresentadas e autorizo o tratamento terapêutico.</p>
-                <p>Pacotes válidos por 3 meses, acima de 8 sessões. Pacotes de 4 sessões válidos por 2 meses.</p>
+                <div class="termo-text">
+                    <p>Eu me responsabilizo por todas as informações apresentadas e autorizo o tratamento terapêutico.</p>
+                    <p>Pacotes válidos por 3 meses, acima de 8 sessões. Pacotes de 4 sessões válidos por 2 meses.</p>
+                </div>
+                
                 <div class="assinatura">
-                    <span>DATA _______/_______/_______</span>
-                    <span>________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASSINATURA</span>
+                    <div class="data-field">
+                        <label for="data_assinatura">Data:</label>
+                        <input type="date" id="data_assinatura" name="data_assinatura">
+                    </div>
+                    <div class="signature-field">
+                        <label for="assinatura">Assinatura do Paciente:</label>
+                        <div class="signature-line">
+                            <hr style="border-top: 1px solid #000; margin: 30px 0 10px 0;">
+                            <p style="text-align: center; font-style: italic;">Paciente</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             
-            <button type="button" id="gerarPDF">Gerar PDF</button>
+            <div class="action-buttons">
+                <!-- <button type="button" id="salvarFormulario" class="btn-primary">Salvar</button> -->
+                <button type="button" id="salvarPDF" class="btn-primary">Gerar PDF</button>
+                <button type="reset" class="btn-secondary">Limpar Formulário</button>
+            </div>
         </form>
     </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="formulario.js"></script>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script_form.js" defer></script>
 </body>
 </html>
